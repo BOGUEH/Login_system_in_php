@@ -1,3 +1,6 @@
+<?php 
+    require("./include/signin.inc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,10 +31,10 @@
                         <a class="nav-link ">Contact us</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" name="emialId" placeholder="Email">
+                <form class="d-flex" role="search" action="./include/signin.inc.php" method="POST">
+                    <input class="form-control me-2" type="search" name="emailid" placeholder="Email">
                     <input class="form-control me-2" type="password" name="password" placeholder="password">
-                    <button class="btn btn-outline-success" name="submit" type="submit">Search</button>
+                    <button class="btn btn-outline-primary" name="signin-submit" type="submit">signin</button>
                 </form>
                 <button class="btn btn-success"  name="Logout" type="submit">Logout</button>
                 

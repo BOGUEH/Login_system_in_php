@@ -54,7 +54,7 @@ if (isset($_POST["submit_signup"])) {
                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedpassword);
                     mysqli_stmt_execute($stmt);
 
-                    header("Location:../login_system/signup.php?signup=success");
+                    header("Location:../login_system/index.php?signup=success");
                     exit();
                 }
             }
@@ -62,4 +62,4 @@ if (isset($_POST["submit_signup"])) {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-}
+}  
