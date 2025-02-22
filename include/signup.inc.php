@@ -1,15 +1,15 @@
 <?php
 
-if (isset($_POST["submit_signup"])) {
+if (isset($_POST['submit-signup'])) {
 
-    require("connect.inc.php");
+    include_once("connect.inc.php");
 
     $username =  $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $passwordrepeat =   $_POST['repeatpassword'];
 
-    var_dump('$passwordrepeat');
+    
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordrepeat)) {
 
@@ -63,3 +63,6 @@ if (isset($_POST["submit_signup"])) {
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 }  
+
+
+?>

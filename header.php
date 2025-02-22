@@ -1,16 +1,23 @@
-<?php 
-    require("./include/signin.inc.php");
+<?php
+
+// require("./include/signout.inc.php");
+session_start();
+
+require("./include/signin.inc.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,22 +38,39 @@
                         <a class="nav-link ">Contact us</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" action="./include/signin.inc.php" method="POST">
+
+                <?php
+
+                if (isset($_SESSION["Id"])) {
+                    echo ' <form class="d-flex" role="search" action="./signout.php" method="POST">
+                    <button class="btn btn-success" name="logout-submit" type="logout-submit">Logout</button> 
+                    </form>';
+                } else {
+                    echo '
+                    <form class="d-flex" role="search" action="./include/signin.inc.php" method="POST">
                     <input class="form-control me-2" type="search" name="emailid" placeholder="Email">
                     <input class="form-control me-2" type="password" name="password" placeholder="password">
                     <button class="btn btn-outline-primary" name="signin-submit" type="submit">signin</button>
-                </form>
-                <button class="btn btn-success"  name="Logout" type="submit">Logout</button>
+                </form> 
+                
                 
                 <ul class="navbar-nav me-5 mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign Up</a>
                     </li>
-                </ul>
+                </ul>';
+                }
+
+
+                ?>
+
+
+
             </div>
         </div>
     </nav>
-  
-        
+
+
 </body>
+
 </html>

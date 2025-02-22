@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["signin-submit"])) {
 
-    require("connect.inc.php");
+    require_once("connect.inc.php");
 
     $emailid = $_POST['emailid'];
     $password = $_POST['password'];
@@ -27,9 +27,10 @@ if (isset($_POST["signin-submit"])) {
                     header("Location:../index.php?error=wrongpassword");
                     exit();
                 } else if ($passwordcheck === true) {
+                    
                     session_start();
-                    $_SESSION["Id"] = $row["id"];
 
+                    $_SESSION["Id"] = $row["id"];
                     $_SESSION["username"] = $row["username"];
 
                     header("Location:../index.php?login=success");

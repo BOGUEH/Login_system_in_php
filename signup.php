@@ -1,5 +1,7 @@
 <?php
-include("include/signup.inc.php");
+
+
+ include_once("include/signup.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +40,7 @@ include("include/signup.inc.php");
                     <input type="password" name="repeatpassword" class="form-control" placeholder="repeat password">
                 </div>
 
-                <button type="submit" name="submit_signup" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit-signup" class="btn btn-primary">Submit</button>
             </form>
 
 

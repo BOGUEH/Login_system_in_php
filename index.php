@@ -17,8 +17,16 @@ include 'header.php'
 <body>
 
     <div class="text-center">
-        <p>you are login!</p>
-        <p>you are logout!</p>
+    <?php 
+    
+    if(isset($_SESSION["Id"])){
+       Echo "<p>you are login!</p> " ;
+    }else{
+        Echo "<p>you are logout!</p> " ;
+    }
+    
+    
+    ?>
     </div>
 
 
