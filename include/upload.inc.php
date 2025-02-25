@@ -1,4 +1,8 @@
 <?php 
+session_start();    
+include_once("./connect.inc.php");
+$id = $_SESSION["id"];
+
 
     if(isset($_POST['file-upload'])) {
         $file = $_FILES['upload'];
@@ -16,13 +20,18 @@
 
         if(in_array($actualFileExt, $allowedExt)) {
             if($fileerror==0) {
-                $fileNewName = uniqid().'.'.$actualFileExt;
+                $fileNewName = 'profile'.$id.'.'.$actualFileExt;
                 $fileDestination ='../upload/'.$fileNewName;
                 move_uploaded_file($fileTmp, $fileDestination);
+
+                $sql = 'UPDATE profileimg SET status = 1 WHERE user_id = "$id"';
+                $result = mysqli_query($conn, $sql);
+
+
                 header('Location:../upload.php?uploaded%successfully');
             }
             
-
+            
         }   else{
            echo "you cannot upload this file";
         }
